@@ -1,0 +1,45 @@
+<!-----------------------------------SIGN IN PAGE-------------------------------->
+{% extends "layout.html" %}
+{% block content %}
+<br>
+<br>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+
+{% if " Created Succesfully" in message %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% else %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+{% endif %}
+
+
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="jumbotron" style="color: #000000">
+    <h1 class="display-4">SIGN IN</h1>
+    <p class="lead">Start Session</p>
+    <hr class="my-4">
+    <p></p>
+    <!--           sign in form -->
+    <form action="/start_sesion" method="POST">
+      <input type="text" name="txtName" id="txtName" placeholder="type your User"><br><br>
+      <input type="password" name="txtPass" id="txtPass" placeholder="type your Pass"><br><br>
+      <input class="btn btn-primary" type="submit" value="Sign in">
+      <a href="{{url_for('home')}}" class="btn btn-secondary">Create user</a>
+    </form>
+    <!--        END   sign in form -->
+  </div>
+{% endblock %}

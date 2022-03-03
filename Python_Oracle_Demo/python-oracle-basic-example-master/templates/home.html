@@ -1,0 +1,36 @@
+<!-------------------------------Index and register user page-->
+{% extends "layout.html" %}
+{% block content %}
+<br>
+<br>
+
+{% with messages=get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+{% if message=="Passwords are not equal" %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="jumbotron" style="color: #000000">
+        <h1 class="display-4">SIGN UP</h1>
+        <p class="lead">Create your acount</p>
+        <hr class="my-4">
+        <p></p>
+        <form action="/" method="POST">
+          <input type="text" name="txtName" id="txtName" placeholder="User Ex: Christian777"><br><br>
+          <input type="password" name="txtPass" id="txtPass" placeholder="Type a password"><br><br>
+          <input type="password" name="txtRepeatPass" id="txtRepeatPass" placeholder="Repeat password"><br><br>
+          <input class="btn btn-primary" type="submit" value="Register">
+          <a href="{{url_for('signin')}}" class="btn btn-secondary">SIGN IN</a>
+        </form>
+        
+</div>
+{% endblock %}

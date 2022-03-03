@@ -1,0 +1,67 @@
+<!--------------------------------------Never change in all pages-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Site</title>
+    <!--BOOTSTRAP 4-->
+   
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+    <!--ESTILOS PRINCIPALES-->
+</head>
+<body>
+
+    <!--Inicio Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{{ url_for('home') }}"> My Library</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('about')}}">About</a>
+                </li>
+               
+                
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                
+                
+                {% if session['usuario'] %}
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     {{ session['usuario'] }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="{{ url_for('rented_book_info') }}">rented books</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </li>
+
+                <a href="{{url_for('logout')}}" class="btn btn-outline-danger my-2 my-sm-0">Logout</a>
+                {% endif %}
+              </form>
+            </div>
+          </nav>
+
+    <!--Fin navbar-->
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+
+    </div>
+         <script src="{{url_for('static',filename='js/jquery-341.js')}}"></script>
+        <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+</body>
+</html>

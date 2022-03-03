@@ -1,0 +1,14 @@
+--Indicaciones 
+--En caso de dar errores al intentar crear un usuario
+alter session set "_ORACLE_SCRIPT"=true
+
+
+--crear un usuario invitado
+create user invated identified by invated
+default tablespace system
+quota 10M on system;
+--dar permisos a los usuarios
+grant create session, create table, create sequence to invated;
+GRANT CREATE PROCEDURE to invated;
+--conocer instancia oracle
+select INSTANCE_NAME from v$instance;

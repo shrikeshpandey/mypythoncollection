@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User </title>
+</head>
+<body>
+    {% with messages=get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    {% if " Correct, we'll start session just now" in message %}
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+    {% endif %}
+    {% if "Welcome Mr. " in message %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+
+    
+    <div class="table-responsive">
+
+            
+            <table class="table table-hover">
+                    <thead class="thead-dark">
+                      <tr>
+                        
+                        <th scope="col">Name</th>
+                        <th scope="col">Quantity</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!------------------------------available Books for rent----------------->
+                      {% for book in allBooks %}
+                      <tr>
+                        <th scope="row" style="background-color: white;">{{ book.getnombre() }}</th>
+                        <td style="background-color: white;">{{ book.getcantidad() }}</td>
+                        <td><a href="/borrow_book/{{ book.getisbn() }}">Borrow</td>
+                        
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+          </div>
+
+</body>
+</html>
+
+{% endblock %}

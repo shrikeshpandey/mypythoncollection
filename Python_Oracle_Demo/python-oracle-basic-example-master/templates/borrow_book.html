@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ book_found[0] }}</title>
+
+</head>
+<body>
+    
+<div class="jumbotron" style="color: #000000">
+    <form action="/rented_book/{{ book_found[0]}}" method="GET">
+        <h3 class="display-4">{{ book_found[1] }}</h3>
+        <p>Quantity: {{book_found[2]}}</p>
+
+        <input type="number" name="NumberBooks" min="1" max="{{ book_found[2] }}" value="1">
+        <input class="btn btn-outline-success" type="submit" name="btnBorrow">
+    </form>  
+</div>
+   
+</body>
+</html>
+
+{% endblock %}
