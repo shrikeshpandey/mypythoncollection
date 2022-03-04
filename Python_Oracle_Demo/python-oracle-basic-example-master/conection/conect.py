@@ -7,7 +7,7 @@ class connect:
         self.user=USER
         self.password=PASS
         try:
-            dsn_tns=cx_Oracle.makedsn('localhost','1521', service_name='christiandata')
+            dsn_tns=cx_Oracle.makedsn('localhost','1521', service_name='orcl19c')
             self.connection=cx_Oracle.connect(self.user, self.password, dsn_tns)
            
         except Exception as ex:
@@ -20,3 +20,6 @@ class connect:
         except Exception as ex:
             print("return conection error: " + str(ex))
             return None
+
+if __name__ == "__main__":
+    import sys

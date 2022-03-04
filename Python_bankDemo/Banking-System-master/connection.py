@@ -1,6 +1,5 @@
 __author__ = 'user'
-
 import cx_Oracle
-//you must have Oracle database userId and password for connection from database.
-con = cx_Oracle.connect("userId/password@localhost/xe")
+con = cx_Oracle.connect(user="pyora",password="pyora",dsn="localhost/ORCL19C")
+
 cur = con.cursor()

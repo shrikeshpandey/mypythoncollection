@@ -1,5 +1,11 @@
+
+from sqlite3 import connect
 import cx_Oracle
-from conection.conect import connect
+# from conection.conect import connect
+import sys
+sys.path.insert(1, '/Python_Oracle_Demo/python-oracle-basic-example-master/conection/')
+# sys.path.append('../')
+from conect import *
 from model.book import book
 
 class book_controller:

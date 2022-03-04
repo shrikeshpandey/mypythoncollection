@@ -8,8 +8,8 @@ d1 = today.strftime("%d/%m/%Y")
 now = datetime.now()
 dt_st=now.strftime("Date :%d/%m/%Y   Time :%H:%M:%S")
 print(dt_st)	
-dsn_tns = cx_Oracle.makedsn(host='localhost', port='1521', service_name='orcl')
-conn = cx_Oracle.connect(user='hr', password='hr', dsn=dsn_tns)
+dsn_tns = cx_Oracle.makedsn(host='localhost', port='1521', service_name='ORCL19C')
+conn = cx_Oracle.connect(user='pyora', password='pyora', dsn=dsn_tns)
 
 def detail():
     

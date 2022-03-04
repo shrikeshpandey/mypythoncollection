@@ -10,11 +10,11 @@ app = Flask(__name__)
 
 # db connection constants
 # update below with your db credentials
-DB_IP = "<database_hostname>"
+DB_IP = "localhost"
 DB_PORT = 1521
-SID = "<database_sid>"
-DB_USER = "<database_user>"
-DB_PASSWORD = "<database_password>"
+SID = "ORCL19C"
+DB_USER = "pyora"
+DB_PASSWORD = "pyora"
 
 # make dsn and create connection to db
 dsn_tns = cx_Oracle.makedsn(DB_IP, DB_PORT, SID)

@@ -2,7 +2,7 @@ __author__ = 'user'
 import functions
 import database
 import cx_Oracle
-from connection import con,cur
+from connection import *
 
 def main():
 
